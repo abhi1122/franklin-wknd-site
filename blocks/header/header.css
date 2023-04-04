@@ -4,6 +4,9 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  box-shadow: 0 8px 20px 0 rgb(0 0 0 / 26%);
 }
 
 header nav {
@@ -228,6 +231,7 @@ header nav .nav-sections ul > li > ul > li {
     gap: 2em;
     margin: 0;
     font-size: var(--body-font-size-xs);
+    justify-content: end;
   }
 
   header nav .nav-sections > ul > li {

@@ -1,14 +1,32 @@
 footer {
   padding: 2rem;
-  background-color: var(--overlay-background-color);
+  background-color: #202020;
+  color: #ebebeb;
   font-size: var(--body-font-size-s);
+  display: flex;
+  align-items: center;
 }
 
 footer .footer {
   max-width: 1200px;
   margin: auto;
+  display: inline-block;
 }
 
 footer .footer p {
   margin: 0;
+}
+
+footer .footer a{
+  color: #ebebeb;
+}
+
+footer > .footer > div > div > div > div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer > .footer > div{
+  display: flex;
 }

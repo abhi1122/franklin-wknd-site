@@ -1,0 +1,49 @@
+.magazines > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 16px;
+}
+
+.magazines > ul > li {
+  border: 1px solid var(--highlight-background-color);
+  background-color: var(--background-color)
+}
+
+.magazines .magazines-magazine-body {
+  margin: 16px;
+}
+
+.magazines .magazines-magazine-image {
+  line-height: 0;
+}
+
+.magazines .magazines-magazine-body > *:first-child {
+  margin-top: 0;
+}
+
+.magazines > ul > li img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+  
+  .pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}

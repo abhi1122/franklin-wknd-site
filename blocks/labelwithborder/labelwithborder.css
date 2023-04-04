@@ -1,0 +1,7 @@
+.labelwithborder-wrapper > .labelwithborder > h1::after, h2::after, h3::after, h4::after{
+  display: block;
+  width: 84px;
+  padding-top: 8px;
+  content: "";
+  border-bottom: 2px solid #ffea00;
+}
