@@ -1,0 +1,46 @@
+.fullscreenbanner {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .section.carousel-container > div {
+    max-width: 1680px !important;
+    margin: auto;
+  }
+}
+
+.fullscreenbanner {
+  max-width: 100% !important;
+  margin: auto;
+}
+
+.fullscreenBanner-image{
+  width: 100%;
+  height: 40pc;
+  max-height: 40pc;
+}
+
+.fullscreenBanner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fullscreenBanner-content{
+  background-color: #fff;
+  padding-left: 28px;
+  padding-right: 28px;
+  position: absolute;
+  bottom: -60px;
+  margin: 0 60px;
+  z-index: 1;
+}
+
+.section:has(.full-width){
+  max-width: 1680px !important;
+  margin: auto;
+}
+
+.section > .fullscreenbanner-wrapper{
+  max-width: 100%;
+}

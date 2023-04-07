@@ -3,17 +3,17 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 16px;
 }
 
 .magazines > ul > li {
-  border: 1px solid var(--highlight-background-color);
   background-color: var(--background-color)
 }
 
 .magazines .magazines-magazine-body {
   margin: 16px;
+  margin-left: 0;
 }
 
 .magazines .magazines-magazine-image {
@@ -47,3 +47,11 @@
   }
   
   .pagination a:hover:not(.active) {background-color: #ddd;}
+
+  .magazines-magazine-body > h4 {
+      font-size: 18px;
+  }
+
+  .magazines-magazine-body > p {
+    font-size: 14px;
+}

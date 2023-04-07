@@ -18,9 +18,18 @@ function createPageing(totalPage) {
 }
 
 export default async function decorate(block) {
+  let url = '/magazines/magazines.json';
+  [...block.children].forEach((row) => {
+    if (row
+      .querySelectorAll('a')[0].text) {
+      url = row
+        .querySelectorAll('a')[0].text;
+    }
+  });
+  block.textContent = '';
   const ul = document.createElement('ul');
 
-  const resp = await fetch('/magazines/magazines.json');
+  const resp = await fetch(url);
   const json = await resp.json();
   json.data.forEach((row) => {
     const li = document.createElement('li');

@@ -112,6 +112,9 @@ export default async function decorate(block) {
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
+        if (navSection.children[0].href === window.location.href) {
+          navSection.className = 'active';
+        }
         if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
@@ -136,10 +139,37 @@ export default async function decorate(block) {
     toggleMenu(nav, navSections, isDesktop.matches);
     isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+    // Adding black bar on top
+    const blackBar = document.createElement('div');
+    const blackBarInner = document.createElement('div');
+    blackBarInner.className = 'nav-wrapper-bar-inner';
+    const icon = document.createElement('span');
+    icon.className = 'icon icon-register header-icon-register';
+    const registerLink = document.createElement('a');
+    registerLink.title = 'Sign Up';
+    registerLink.href = '/register';
+    registerLink.innerHTML = 'Sign Up';
+    blackBar.className = 'nav-wrapper-bar';
+    blackBarInner.append(icon);
+    blackBarInner.append(registerLink);
+    decorateIcons(blackBarInner);
+    blackBar.append(blackBarInner);
+    //-----
+
     decorateIcons(nav);
     const navWrapper = document.createElement('div');
     navWrapper.className = 'nav-wrapper';
+    navWrapper.append(blackBar);
     navWrapper.append(nav);
     block.append(navWrapper);
+
+    window.addEventListener('scroll', function () {
+      const [element] = document.getElementsByClassName('nav-wrapper');
+      if (this.scrollY > 10) {
+        element.classList.add('header-nav-shadow');
+      } else {
+        element.classList.remove('header-nav-shadow');
+      }
+    }, false);
   }
 }

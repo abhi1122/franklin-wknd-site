@@ -4,8 +4,11 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
-  padding-top: 15px;
+  padding-top: 0;
   padding-bottom: 5px;
+}
+
+.header-nav-shadow {
   box-shadow: 0 8px 20px 0 rgb(0 0 0 / 26%);
 }
 
@@ -238,11 +241,26 @@ header nav .nav-sections ul > li > ul > li {
     flex: 0 1 auto;
     position: relative;
     font-weight: 500;
+    color: #202020;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 10px 17px;
+    text-decoration: none;
   }
 
   header nav .nav-sections > ul > li > ul {
     display: none;
     position: relative;
+  }
+
+  .nav-sections > ul > .active{
+    background-color: #ffea00;
+  }
+
+  .nav-sections > ul > li > a:hover {
+    background-color: #ffea00;
+    padding: 10px 17px;
+    text-decoration: none;
   }
 
   header nav .nav-sections > ul > li[aria-expanded="true"] > ul {
@@ -276,4 +294,29 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+.nav-wrapper-bar {
+  min-height: 25px;
+  background-color: #202020;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-wrapper-bar-inner{
+  min-width: 1200px;
+  display: flex;
+  justify-content: end;
+  padding: 5px;
+} 
+
+.nav-wrapper-bar-inner > a{
+  color: #f7f7f7;
+  font-size: 14px;
+}
+
+.header-icon-register{
+  margin-right: 5px;
 }
