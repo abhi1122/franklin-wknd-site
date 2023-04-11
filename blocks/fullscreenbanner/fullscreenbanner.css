@@ -44,3 +44,9 @@
 .section > .fullscreenbanner-wrapper{
   max-width: 100%;
 }
+
+.fullscreenbanner > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 

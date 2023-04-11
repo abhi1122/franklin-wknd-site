@@ -76,11 +76,11 @@
 }
 
 .btn-prev {
-  bottom: 0;
+  bottom: 30px;
   right: 5px;
 }
 
 .btn-next {
-  bottom: 0;
+  bottom: 30px;
   right: 50px;
 }

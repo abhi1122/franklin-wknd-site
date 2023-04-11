@@ -19,12 +19,15 @@ footer .footer p {
 
 footer .footer a{
   color: #ebebeb;
+  margin-left: 30px;
 }
 
 footer > .footer > div > div > div > div{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 30px;
+    text-align: justify;
 }
 
 footer > .footer > div{
