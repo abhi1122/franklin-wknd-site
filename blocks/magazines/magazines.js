@@ -1,22 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
-function createPageing(totalPage) {
-  const mainDiv = document.createElement('div');
-  let anchor = document.createElement('a');
-  anchor.innerHTML = '&laquo;';
-  mainDiv.append(anchor);
-  mainDiv.classList.add('pagination');
-  for (let i = 1; i <= totalPage; i++) {
-    const anchor2 = document.createElement('a');
-    anchor2.innerHTML = i;
-    mainDiv.append(anchor2);
-  }
-  anchor = document.createElement('a');
-  anchor.innerHTML = '&raquo;';
-  mainDiv.append(anchor);
-  return mainDiv;
-}
-
 export default async function decorate(block) {
   let url = '/magazines/magazines.json';
   [...block.children].forEach((row) => {
@@ -48,11 +31,13 @@ export default async function decorate(block) {
     contentDiv.append(p);
     contentDiv.className = 'magazines-magazine-body';
 
-    li.append(imageDiv);
-    li.append(contentDiv);
+    const a = document.createElement('a');
+    a.href=row.Link;
+    a.append(imageDiv);
+    a.append(contentDiv);
+    li.append(a);
     ul.append(li);
   });
   ul.querySelectorAll('img').forEach((img) => img.replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '300' }])));
   block.append(ul);
-  // block.append(createPageing(json.total));
 }

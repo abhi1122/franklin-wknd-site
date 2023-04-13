@@ -28,17 +28,30 @@
 
 .fullscreenBanner-content{
   background-color: #fff;
-  padding-left: 28px;
-  padding-right: 28px;
+  padding-left: 20px;
+  padding-right: 20px;
   position: absolute;
   bottom: -60px;
-  margin: 0 60px;
   z-index: 1;
+  width: 83%;
+  max-width: 1164px;
+}
+
+@media (min-width: 768px){
+  .carousel-content{
+    width: 100%;
+  }
 }
 
 .section:has(.full-width){
   max-width: 1680px !important;
   margin: auto;
+}
+
+@media (min-width: 768px){
+  .carousel-content{
+    width: 100%;
+  }
 }
 
 .section > .fullscreenbanner-wrapper{
@@ -50,3 +63,43 @@
   justify-content: center;
   align-items: center;
 } 
+
+@media (min-width: 600px) {
+  main .section:has(.fullscreenbanner) {
+    padding: 16px 0;
+  }
+}
+
+@media (min-width: 768px){
+  .carousel-content{
+    width: 100%;
+  }
+}
+
+@media (min-width: 1680px){
+  .section > div:has(.fullscreenbanner) {
+    max-width: 100%;
+    width: 83% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  main .section:has(.fullscreenbanner) {
+    padding: 0;
+  }
+}
+
+@media (min-width: 768px){
+  .section > div:has(.fullscreenbanner) {
+    max-width: 100%;
+    width: 100% !important;
+    padding: 16px 0;
+  }
+}
+
+/* @media (min-width: 1680px){
+  .section > div:has(.fullscreenbanner) {
+    max-width: 100%;
+    width: 90% !important;
+  }
+} */

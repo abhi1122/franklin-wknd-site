@@ -1,5 +1,25 @@
 import { createOptimizedPicture, decorateIcons } from '../../scripts/lib-franklin.js';
 
+function updateIndicators(curSlide) {
+  Array.from(document.querySelectorAll('.carousel-indicators li')).forEach((el) => el.classList.remove('carousel-indicators-active'));
+  const indicators = document.querySelector(`.carousel-indicators li:nth-child(${curSlide + 1})`);
+  indicators.classList.add = 'carousel-indicators-active';
+  indicators.className = 'carousel-indicators-active';
+}
+function createIndicators(count) {
+  const ol = document.createElement('ol');
+  ol.className = 'carousel-indicators';
+  for (let i = 0; i < count; i++) {
+    const li = document.createElement('li');
+    if (i === 0) {
+      li.className = 'carousel-indicators-active';
+    }
+    li.innerHTML = i;
+    ol.append(li);
+  }
+  return ol;
+}
+
 function loadSlider() {
   const slides = document.querySelectorAll('.slide');
 
@@ -24,9 +44,10 @@ function loadSlider() {
     } else {
       curSlide++;
     }
-
+    updateIndicators(curSlide);
     //   move slide by -100%
     slides.forEach((slide, indx) => {
+      console.log(indx - curSlide);
       slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
     });
   });
@@ -42,7 +63,7 @@ function loadSlider() {
     } else {
       curSlide--;
     }
-
+    updateIndicators(curSlide);
     //   move slide by 100%
     slides.forEach((slide, indx) => {
       slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
@@ -51,7 +72,7 @@ function loadSlider() {
 }
 export default function decorate(block) {
   const mainDiv = document.createElement('div');
-
+  const totalSlide = block.children.length;
   [...block.children].forEach((row) => {
     const div = document.createElement('div');
     div.className = 'slide';
@@ -74,20 +95,23 @@ export default function decorate(block) {
         createOptimizedPicture(img.src, img.alt, false, [{ width: 'auto' }]),
       ));
   block.textContent = '';
+  const buttonSpan = document.createElement('span');
   const buttonNxt = document.createElement('button');
   const spanNxt = document.createElement('span');
-  spanNxt.className = 'icon icon-arrowl';
+  spanNxt.className = 'icon icon-arrowr';
   buttonNxt.append(spanNxt);
   buttonNxt.className = 'btn btn-next';
 
   const buttonPrev = document.createElement('button');
   const spanPrev = document.createElement('span');
-  spanPrev.className = 'icon icon-arrowr';
+  spanPrev.className = 'icon icon-arrowl';
   buttonPrev.append(spanPrev);
   buttonPrev.className = 'btn btn-prev';
-  mainDiv.append(buttonNxt);
-  mainDiv.append(buttonPrev);
+  buttonSpan.append(buttonPrev);
+  buttonSpan.append(buttonNxt);
+  mainDiv.append(buttonSpan);
   decorateIcons(mainDiv);
+  mainDiv.append(createIndicators(totalSlide));
   block.append(mainDiv);
   loadSlider();
 }

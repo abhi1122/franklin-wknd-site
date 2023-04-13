@@ -76,8 +76,8 @@ h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
-  margin-top: 50px;
-  margin-bottom: 34px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
@@ -89,8 +89,8 @@ h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
 
 p, dl, ol, ul, pre, blockquote {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 hr {
@@ -153,7 +153,6 @@ a.button:any-link, button {
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
-  background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
@@ -230,16 +229,38 @@ main .section {
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1680px) {
   .section > div {
-    max-width: 1200px;
+    max-width: 1164px;
     margin: auto;
+    padding: 16px 14px;
+    width: 85%;
+  }
+}
+
+@media (min-width: 768px){
+  .section > div {
+    max-width: 1164px;
+    margin: auto;
+    padding: 16px 14px;
+    width: 100%;
   }
 }
 
 /* section metadata */
 main .section.highlight {
   background-color: var(--highlight-background-color);
+}
+
+/* section metadata */
+main .section.highlight-quotes {
+  background-color: var(--highlight-background-color);
+  max-width: 1164px;
+  margin: auto;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 main > .section.separator {

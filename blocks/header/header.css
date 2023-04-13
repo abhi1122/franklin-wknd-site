@@ -2,7 +2,7 @@
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   padding-top: 0;
   padding-bottom: 5px;
@@ -21,9 +21,8 @@ header nav {
   align-items: center;
   gap: 0 2em;
   margin: auto;
-  max-width: 1264px;
+  max-width: 1164px;
   height: var(--nav-height);
-  padding: 0 1rem;
   font-family: var(--body-font-family);
 }
 
@@ -38,7 +37,7 @@ header nav[aria-expanded="true"] {
 
 @media (min-width: 600px) {
   header nav {
-    padding: 0 2rem;
+    padding: 0;
   }
 }
 
@@ -258,8 +257,11 @@ header nav .nav-sections ul > li > ul > li {
   }
 
   .nav-sections > ul > li > a:hover {
+    text-decoration: none;
+  }
+
+  .nav-sections > ul > li:hover {
     background-color: #ffea00;
-    padding: 10px 17px;
     text-decoration: none;
   }
 
@@ -306,10 +308,11 @@ header nav .nav-tools {
 }
 
 .nav-wrapper-bar-inner{
-  min-width: 1200px;
   display: flex;
   justify-content: end;
-  padding: 5px;
+  max-width: 1164px;
+  padding: 5px 14px;
+  width: 100%;
 } 
 
 .nav-wrapper-bar-inner > a{
